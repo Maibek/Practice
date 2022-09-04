@@ -14,15 +14,27 @@ shop_btn.click()
 main_menu = driver.find_element(By.ID, 'site-logo')
 main_menu.click()
 
+arrivals = len(driver.find_elements(By.CLASS_NAME, 'products'))
+if arrivals == 3:
+    print('Ok')
+else:
+    print('Error')
+
 book = driver.find_element(By.CSS_SELECTOR, '#text-22-sub_row_1-0-2-0-0 > div > ul > li > a.woocommerce-LoopProduct-link > img')
 book.click()
 
-description = driver.find_element(By.CSS_SELECTOR, '#product-160 > div.woocommerce-tabs.wc-tabs-wrapper > ul > li.description_tab > a')
-description.click()
+basket = driver.find_element(By.CSS_SELECTOR, '#product-160 > div.summary.entry-summary > form > button')
+if basket.is_enabled():
+    print('Ok')
+else:
+    print('Error')
 
-text = driver.find_element(By.ID, 'tab-description')
+reviews = driver.find_element(By.CSS_SELECTOR, '#product-160 > div.woocommerce-tabs.wc-tabs-wrapper > ul > li.reviews_tab > a')
+reviews.click()
+
+text = driver.find_element(By.ID, 'tab-reviews')
 text_1 = text.text
-assert 'Product Description' in text_1
+assert 'There are no reviews yet.' in text_1
 
 time.sleep(2)
 driver.quit()
