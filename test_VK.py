@@ -23,7 +23,7 @@ class Test:
 
     # @pytest.mark.parametrize()
     # def test_list_two(self):
-    #     list_one = (int(2, 4, 6, 8))
+    #     list_one = (2, 4, 6, 8)
     #     try:
     #         assert list_one%2 == 0
     #     except TypeError:
