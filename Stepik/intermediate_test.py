@@ -93,7 +93,7 @@ assert value_product_name_2_text == product_name_2_text
 print('Проверка суммы заказа.')
 """Проверка суммы заказа"""
 
-value_product_price = driver.find_element(By.XPATH, '//*[@id="checkout_summary_container"]/div/div[2]/div[5]')
+value_product_price = driver.find_element(By.XPATH, '//div[@class="summary_subtotal_label"]')
 value_product_price_text = value_product_price.text.lstrip('Item total: $')
 assert float(product_price_1_text) + float(product_price_2_text) == float(value_product_price_text)
 
